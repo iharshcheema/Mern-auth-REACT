@@ -30,8 +30,7 @@ const Homepage = () => {
             Router v6 to handle front-end routing. When users register for the
             first time, a two-step verification process involving OTP
             verification is conducted. Users can log in using either their
-            username or email.Additionally, it features custom error handling on
-            the backend, allows users to reset their password via an email link
+            username or email.Additionally, it allows users to reset their password via an email link
             if forgotten, and enables signed-in users to change their password.
           </CardDescription>
         </CardHeader>
