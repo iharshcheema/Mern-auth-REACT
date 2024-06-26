@@ -14,7 +14,6 @@ const Header = () => {
         const response = await fetch(
           'https://mern-auth-backend-production-41f9.up.railway.app/check-login-on-start',
           {
-            method: 'GET',
             headers: {
               'Content-Type': 'application/json',
             },
