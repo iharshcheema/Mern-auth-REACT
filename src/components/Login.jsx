@@ -68,16 +68,20 @@ const Login = () => {
   }
 
   return (
-    <div className="mx-auto max-w-fit">
-      <>
-        {loading ? (
-          <>
-            <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
-              <ClipLoader />
-            </div>
-          </>
-        ) : (
-          <>
+    <>
+      {loading ? (
+        <>
+          <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
+            <ClipLoader />
+          </div>
+        </>
+      ) : (
+        <>
+          <h1 className=" mx-auto max-w-fit p-5 text-xl mb-1">
+            Welcome to the Sign in page! You can now put your credentials to
+            login into the application<span role="img">🥳</span>
+          </h1>
+          <div className="mx-auto max-w-fit">
             <form onSubmit={handleLogin}>
               <Card>
                 <CardHeader>
@@ -89,7 +93,9 @@ const Login = () => {
                 <CardContent>
                   <div className="grid w-full items-center gap-4">
                     <div className="flex flex-col space-y-1.5">
-                      <Label htmlFor="identifier">Enter username</Label>
+                      <Label htmlFor="identifier">
+                        Enter username or Email
+                      </Label>
                       <Input
                         id="identifier"
                         type="text"
@@ -126,10 +132,10 @@ const Login = () => {
                 </CardFooter>
               </Card>
             </form>
-          </>
-        )}
-      </>
-    </div>
+          </div>
+        </>
+      )}
+    </>
   )
 }
 

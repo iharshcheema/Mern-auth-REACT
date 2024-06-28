@@ -66,41 +66,50 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="mx-auto max-w-fit p-5 ">
-      <Card>
-        <CardHeader>
-          <CardTitle>Change Password</CardTitle>
-          <CardDescription>
-            You can change your current password{' '}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handlePassChange}>
-            <Label htmlFor="current-password" className="text-center">
-              Current password
-            </Label>
-            <Input
-              id="current-password"
-              className="my-4"
-              value={currentPassword}
-              onChange={(e) => setCurrentPassword(e.currentTarget.value)}
-              required
-            />
-            <Label htmlFor="new-password" className="text-center">
-              New password
-            </Label>
-            <Input
-              id="new-password"
-              className="my-4"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.currentTarget.value)}
-              required
-            />
-            <Button type="submit">Save changes</Button>
-          </form>
-        </CardContent>
-      </Card>
-    </div>
+    <>
+      <h1 className=" mx-auto max-w-fit p-5 text-xl mb-1">
+        Welcome to the Dashboard! You can now change your password if you want
+        to{' '}
+        <span role="img" >
+          🥳
+        </span>
+      </h1>
+      <div className="mx-auto max-w-fit p-5 ">
+        <Card>
+          <CardHeader>
+            <CardTitle>Change Password</CardTitle>
+            <CardDescription>
+              You can change your current password{' '}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handlePassChange}>
+              <Label htmlFor="current-password" className="text-center">
+                Current password
+              </Label>
+              <Input
+                id="current-password"
+                className="my-4"
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.currentTarget.value)}
+                required
+              />
+              <Label htmlFor="new-password" className="text-center">
+                New password
+              </Label>
+              <Input
+                id="new-password"
+                className="my-4"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.currentTarget.value)}
+                required
+              />
+              <Button type="submit">Save changes</Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </>
   )
 }
 export default Dashboard

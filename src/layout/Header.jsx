@@ -47,7 +47,9 @@ const Header = () => {
       <div className=" text-center font-bold ">
         <header className=" flex justify-evenly py-10">
           <div>
-            <Link to="/">MERN Auth</Link>
+            <Link to="/">
+              MERN Auth
+            </Link>
           </div>
           <div>
             {user ? (

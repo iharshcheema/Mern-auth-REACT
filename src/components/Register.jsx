@@ -69,61 +69,70 @@ const Register = () => {
           </div>
         </>
       ) : (
-        <div className="mx-auto max-w-fit">
-          <form onSubmit={Register}>
-            <div>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Complete Registration</CardTitle>
-                  <CardDescription>
-                    Enter your Username and password which you will use to sign
-                    in to our application
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid w-full items-center gap-4">
-                    <div className="flex flex-col space-y-1.5">
-                      <Label htmlFor="email">Your email</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your username"
-                        required
-                      />
+        <>
+          <h1 className=" mx-auto max-w-fit p-5 text-xl mb-1">
+            Welcome to the Registration page! You will receive an OTP on your
+            Email that you have to enter <span role="img">📲</span> to complete
+            the registration process
+            <span role="img">🥳</span>.
+          </h1>
+
+          <div className="mx-auto max-w-fit">
+            <form onSubmit={Register}>
+              <div>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Complete Registration</CardTitle>
+                    <CardDescription>
+                      Enter your Username and password which you will use to
+                      sign in to our application
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid w-full items-center gap-4">
+                      <div className="flex flex-col space-y-1.5">
+                        <Label htmlFor="email">Your email</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="Enter your email"
+                          required
+                        />
+                      </div>
+                      <div className="flex flex-col space-y-1.5">
+                        <Label htmlFor="username">Enter username</Label>
+                        <Input
+                          id="username"
+                          type="text"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                          placeholder="Enter your username"
+                          required
+                        />
+                      </div>
+                      <div className="flex flex-col space-y-1.5">
+                        <Label htmlFor="password">Enter password</Label>
+                        <Input
+                          id="password"
+                          type="password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          placeholder="Enter your password"
+                          required
+                        />
+                      </div>
                     </div>
-                    <div className="flex flex-col space-y-1.5">
-                      <Label htmlFor="username">Enter username</Label>
-                      <Input
-                        id="username"
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Enter your username"
-                        required
-                      />
-                    </div>
-                    <div className="flex flex-col space-y-1.5">
-                      <Label htmlFor="password">Enter password</Label>
-                      <Input
-                        id="password"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Enter your password"
-                        required
-                      />
-                    </div>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button type="submit">Complete Registration</Button>
-                </CardFooter>
-              </Card>
-            </div>
-          </form>
-        </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button type="submit">Complete Registration</Button>
+                  </CardFooter>
+                </Card>
+              </div>
+            </form>
+          </div>
+        </>
       )}
     </>
   )
