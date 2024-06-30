@@ -19,7 +19,7 @@ MERN Auth uses JSON Web Tokens (JWT) for securing access to protected content, e
 
 https://mern-auth-react.vercel.app
 
-## The backend is deployed on:
+## The backend is deployed at
 https://mern-auth-backend-production-41f9.up.railway.app
 
 
