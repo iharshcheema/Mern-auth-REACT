@@ -70,19 +70,12 @@ const Register = () => {
         </>
       ) : (
         <>
-          <h1 className=" mx-auto max-w-fit p-5 text-xl mb-1">
-            Welcome to the Registration page! You will receive an OTP on your
-            Email that you have to enter <span role="img">📲</span> to complete
-            the registration process
-            <span role="img">🥳</span>.
-          </h1>
-
           <div className="mx-auto max-w-fit">
             <form onSubmit={Register}>
               <div>
                 <Card>
                   <CardHeader>
-                    <CardTitle>Complete Registration</CardTitle>
+                    <CardTitle>Registration</CardTitle>
                     <CardDescription>
                       Enter your Username and password which you will use to
                       sign in to our application
@@ -125,8 +118,13 @@ const Register = () => {
                       </div>
                     </div>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="flex justify-between flex-wrap">
                     <Button type="submit">Complete Registration</Button>
+                    <a href="/">
+                      <Button variant="link" type="button">
+                        Existing user? Sign-in
+                      </Button>
+                    </a>
                   </CardFooter>
                 </Card>
               </div>

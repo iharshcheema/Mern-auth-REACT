@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { useContext } from 'react'
 import UserContext from '@/context/Usercontext'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+
 import {
   Card,
   CardContent,
@@ -19,6 +21,8 @@ const Dashboard = () => {
   const [currentPassword, setCurrentPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const [logoutLoading, setlogoutLoading] = useState(false)
+  const navigate = useNavigate()
 
   const handlePassChange = async (e) => {
     e.preventDefault()
@@ -55,7 +59,38 @@ const Dashboard = () => {
       setLoading(false)
     }
   }
-  if (loading) {
+
+  const handleLogout = async () => {
+    try {
+      setlogoutLoading(true)
+      const response = await fetch(
+        'https://mern-auth-backend-production-41f9.up.railway.app/logout',
+        {
+          credentials: 'include',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      const data = await response.json()
+      if (response.status === 401) {
+        toast.error(data.message)
+      } else if (response.status === 403) {
+        toast.error(data.message)
+      } else if (response.ok) {
+        setUser(null)
+        toast.success(data.message)
+        navigate('/')
+      } else toast.error(data.message)
+    } catch (error) {
+      console.error('Error logging out:', error)
+    } finally {
+      setlogoutLoading(false)
+    }
+  }
+
+  if (loading || logoutLoading) {
     return (
       <>
         <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
@@ -67,19 +102,12 @@ const Dashboard = () => {
 
   return (
     <>
-      <h1 className=" mx-auto max-w-fit p-5 text-xl mb-1">
-        Welcome to the Dashboard! You can now change your password if you want
-        to{' '}
-        <span role="img" >
-          🥳
-        </span>
-      </h1>
-      <div className="mx-auto max-w-fit p-5 ">
+      <div className="mx-auto max-w-fit p-5 flex flex-col ">
         <Card>
           <CardHeader>
-            <CardTitle>Change Password</CardTitle>
+            <CardTitle>Welcome to the Dashboard !</CardTitle>
             <CardDescription>
-              You can change your current password{' '}
+              You can change your current password or you can logout{' '}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -108,6 +136,10 @@ const Dashboard = () => {
             </form>
           </CardContent>
         </Card>
+
+        <Button variant="destructive" onClick={handleLogout} className="mt-5 ">
+          Logout
+        </Button>
       </div>
     </>
   )

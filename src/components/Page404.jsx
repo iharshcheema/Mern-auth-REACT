@@ -1,14 +1,28 @@
-import { Button } from './ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+
 
 const Page404 = () => {
   return (
-    <div className="mx-auto max-w-fit text-center">
-      <h1 className="text-9xl font-bold mt-10">404</h1>
-      <p className="text-xl">Page Not Found</p>
-      <Button variant="link">
-        <a href="/">Click here to Go Back Home</a>
-      </Button>
-    </div>
+    <Card className="mx-auto max-w-fit text-center ">
+      <CardHeader>
+        <CardTitle className="mb-1">Error 404!</CardTitle>
+        <CardDescription>Page Not Found</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Button variant="ghost">
+          {' '}
+          <a href="/">Go back to Homepage</a>
+        </Button>
+      </CardContent>
+    </Card>
   )
 }
 export default Page404

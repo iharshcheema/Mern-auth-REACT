@@ -51,7 +51,7 @@ const VerifyOtp = () => {
         toast.error(data.message)
       } else if (response.status === 201) {
         toast.success(data.message)
-        navigate('/login')
+        navigate('/')
       } else {
         toast.error(data.message)
       }

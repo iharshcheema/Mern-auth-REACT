@@ -77,10 +77,6 @@ const Login = () => {
         </>
       ) : (
         <>
-          <h1 className=" mx-auto max-w-fit p-5 text-xl mb-1">
-            Welcome to the Sign in page! You can now put your credentials to
-            login into the application<span role="img">🥳</span>
-          </h1>
           <div className="mx-auto max-w-fit">
             <form onSubmit={handleLogin}>
               <Card>
@@ -122,11 +118,16 @@ const Login = () => {
                     </div>
                   </div>
                 </CardContent>
-                <CardFooter className="flex justify-between">
+                <CardFooter className="flex justify-between flex-wrap">
                   <Button type="submit">Login</Button>
                   <a href="/forgot-password">
                     <Button variant="link" type="button">
-                      Forgot Password?
+                      Forgot Pass?
+                    </Button>
+                  </a>
+                  <a href="/register">
+                    <Button variant="link" type="button">
+                      New User? Register
                     </Button>
                   </a>
                 </CardFooter>

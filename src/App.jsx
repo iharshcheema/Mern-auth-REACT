@@ -1,8 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
-import Homepage from './components/Homepage'
 import Login from './components/Login'
 import Layout from './layout/Layout'
-import Logout from './components/Logout'
 import UserContextProvider from './context/UserContextProvider'
 import Dashboard from './components/Dashboard'
 import VerifyOtp from './components/VerifyOtp'
@@ -11,6 +9,7 @@ import Authrequired from './utils/Authrequired'
 import ForgotPass from './components/ForgotPass'
 import ResetPassword from './components/ResetPassword'
 import Register from './components/Register'
+import About from './components/About'
 
 const App = () => {
   return (
@@ -22,21 +21,19 @@ const App = () => {
               index
               element={
                 <>
-                  <Homepage />
+                  <Login />
                 </>
               }
             />
-            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/verify-otp" element={<VerifyOtp />} />
-
-            <Route path="/logout" element={<Logout />} />
             <Route element={<Authrequired />}>
               <Route path="/dashboard" element={<Dashboard />} />
             </Route>
             <Route path="/forgot-password" element={<ForgotPass />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route path="*" element={<Page404 />} />
+            <Route path="/about" element={<About/>} />
           </Route>
         </Routes>
       </UserContextProvider>

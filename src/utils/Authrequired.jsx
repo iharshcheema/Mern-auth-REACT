@@ -6,7 +6,7 @@ const Authrequired = () => {
   const { user, setUser } = useContext(UserContext)
 
   if (!user) {
-    return <Navigate to="/login" />
+    return <Navigate to="/" />
   }
   return <Outlet />
 }

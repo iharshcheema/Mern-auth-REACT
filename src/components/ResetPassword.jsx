@@ -46,14 +46,14 @@ const ResetPassword = () => {
         toast.error(data.message)
       } else if (response.status === 401) {
         toast.error(data.message)
-        navigate('/login')
+        navigate('/')
       }
       if (response.status === 200) {
         toast.success(data.message)
-        navigate('/login')
+        navigate('/')
       } else {
         toast.error(data.message)
-        navigate('/login')
+        navigate('/')
       }
     } catch (error) {
       console.error(error)

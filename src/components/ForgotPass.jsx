@@ -43,7 +43,7 @@ const ForgotPass = () => {
         toast.error(data.message)
       } else if (response.status === 200) {
         toast.success(data.message)
-        navigate('/login')
+        navigate('/')
       } else {
         toast.error(data.message)
       }

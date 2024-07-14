@@ -1,6 +1,3 @@
-import { useContext } from 'react'
-import UserContext from '@/context/Usercontext'
-import { useNavigate } from 'react-router-dom'
 import {
   Card,
   CardContent,
@@ -10,13 +7,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-const Homepage = () => {
-  const user = useContext(UserContext)
-  const navigate = useNavigate()
-
-  if (!user) {
-    return navigate('/dashboard')
-  }
+const About = () => {
   return (
     <div className="mx-auto max-w-fit text-center">
       <Card>
@@ -38,11 +29,11 @@ const Homepage = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="mb-2">
-          Click on the "SIGN UP" button if you are a new user to register or
-          click on the "LOG IN" button to sign in to the application.
+          Click on "Register" if you are a new user to register or
+          click on "Log-in" button to sign in to the application.
         </CardContent>
       </Card>
     </div>
   )
 }
-export default Homepage
+export default About
