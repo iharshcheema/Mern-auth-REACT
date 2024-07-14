@@ -30,7 +30,7 @@ const About = () => {
         </CardHeader>
         <CardContent className="mb-2">
           Click on "Register" if you are a new user to register or
-          click on "Log-in" button to sign in to the application.
+          Click on "Log-in" to sign in to the application.
         </CardContent>
       </Card>
     </div>
