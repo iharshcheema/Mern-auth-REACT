@@ -38,11 +38,11 @@ const Header = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Log-in</BreadcrumbLink>
+            <BreadcrumbLink href="/register">Register</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/register">Register</BreadcrumbLink>
+            <BreadcrumbLink href="/">Log-in</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
