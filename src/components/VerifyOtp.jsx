@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Button } from '@/components/ui/button'
-import { Input } from './ui/input'
-import { ChevronRight } from 'lucide-react'
+import { REGEXP_ONLY_DIGITS } from 'input-otp'
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from '@/components/ui/input-otp'
 import ClipLoader from 'react-spinners/ClipLoader'
 import {
   Card,
@@ -72,7 +76,7 @@ const VerifyOtp = () => {
         </>
       ) : (
         <div className="mx-auto max-w-fit">
-          <form onSubmit={handleVerifyOtp} className="mx-auto w-1/2 p-4">
+          <form onSubmit={handleVerifyOtp} className="mx-auto p-4">
             <Card>
               <CardHeader>
                 <CardTitle>Enter OTP</CardTitle>
@@ -81,21 +85,25 @@ const VerifyOtp = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid w-full items-center gap-4">
-                  <div className="flex flex-col space-y-1.5">
-                    <Input
-                      type="text"
-                      value={otp}
-                      onChange={(e) => setOtp(e.target.value)}
-                      required
-                    />
-                  </div>
-                </div>
+                <InputOTP
+                  value={otp}
+                  onChange={(otp) => setOtp(otp)}
+                  maxLength={6}
+                  pattern={REGEXP_ONLY_DIGITS}
+                >
+                  <InputOTPGroup className="flex flex-wrap ">
+                    <InputOTPSlot index={0} />
+                    <InputOTPSlot index={1} />
+                    <InputOTPSlot index={2} />
+
+                    <InputOTPSlot index={3} />
+                    <InputOTPSlot index={4} />
+                    <InputOTPSlot index={5} />
+                  </InputOTPGroup>
+                </InputOTP>
               </CardContent>
               <CardFooter className="flex justify-between">
-                <Button variant="outline" size="icon">
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
+                <Button>Submit</Button>
               </CardFooter>
             </Card>
           </form>
