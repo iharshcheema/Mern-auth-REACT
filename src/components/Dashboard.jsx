@@ -6,14 +6,15 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { ClipLoader } from 'react-spinners'
 
 const Dashboard = () => {
@@ -102,15 +103,21 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="mx-auto max-w-fit p-5 flex flex-col ">
-        <Card>
-          <CardHeader>
-            <CardTitle>Welcome to the Dashboard !</CardTitle>
-            <CardDescription>
-              You can change your current password or you can logout{' '}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
+      <div className="mx-auto max-w-fit flex flex-col mb-5">
+        <h1 className="text-2xl mb-5">Welcome to the Dashboard !</h1>
+      </div>
+      <div className="mx-auto max-w-fit flex flex-col">
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline">Edit Password</Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Edit password</DialogTitle>
+              <DialogDescription>
+                Make changes to your password here. Click save when you're done.
+              </DialogDescription>
+            </DialogHeader>
             <form onSubmit={handlePassChange}>
               <Label htmlFor="current-password" className="text-center">
                 Current password
@@ -132,10 +139,12 @@ const Dashboard = () => {
                 onChange={(e) => setNewPassword(e.currentTarget.value)}
                 required
               />
-              <Button type="submit">Save changes</Button>
+              <DialogClose asChild>
+                <Button type="submit">Save changes</Button>
+              </DialogClose>
             </form>
-          </CardContent>
-        </Card>
+          </DialogContent>
+        </Dialog>
 
         <Button variant="destructive" onClick={handleLogout} className="mt-5 ">
           Logout

@@ -13,7 +13,7 @@ const About = () => {
       <Card>
         <CardHeader>
           <CardTitle className="mb-7">
-            Welcome to MERN AUTHENTICATION <span role="img">🥳</span>
+            Welcome to MERN AUTHENTICATION!
           </CardTitle>
           <CardDescription className="mb-7">
             Welcome to our authentication system, which utilizes JSON Web Tokens
@@ -29,8 +29,10 @@ const About = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="mb-2">
-          Click on "Register" if you are a new user to register or
-          Click on "Log-in" to sign in to the application.
+          Click on <span className="font-semibold">Register</span> if you are a new
+          user to register or Click on{' '}
+          <span className="font-semibold">Login</span> to sign in to the
+          application.
         </CardContent>
       </Card>
     </div>
