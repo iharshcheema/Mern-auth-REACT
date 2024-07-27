@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Button } from '@/components/ui/button'
-import { REGEXP_ONLY_DIGITS } from 'input-otp'
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp'
 import {
   InputOTP,
   InputOTPGroup,
@@ -89,7 +89,7 @@ const VerifyOtp = () => {
                   value={otp}
                   onChange={(otp) => setOtp(otp)}
                   maxLength={6}
-                  pattern={REGEXP_ONLY_DIGITS}
+                  pattern={REGEXP_ONLY_DIGITS_AND_CHARS}
                 >
                   <InputOTPGroup className="flex flex-wrap ">
                     <InputOTPSlot index={0} />
