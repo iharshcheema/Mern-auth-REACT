@@ -103,8 +103,14 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="mx-auto max-w-fit flex flex-col mb-5">
+      <div className="mx-auto max-w-fit flex flex-col mb-2">
         <h1 className="text-2xl mb-5">Welcome to the Dashboard !</h1>
+      </div>
+      <div className="mx-auto max-w-fit flex flex-col mb-10">
+        <p>
+          This application can be used as a boiler plate for any MERN
+          application that requires Authentication
+        </p>
       </div>
       <div className="mx-auto max-w-fit flex flex-col">
         <Dialog>
