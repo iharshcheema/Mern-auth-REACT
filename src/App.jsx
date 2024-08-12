@@ -33,7 +33,7 @@ const App = () => {
             <Route path="/forgot-password" element={<ForgotPass />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route path="*" element={<Page404 />} />
-            <Route path="/about" element={<About/>} />
+            <Route path="/about" element={<About />} />
           </Route>
         </Routes>
       </UserContextProvider>

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import {
   Card,
@@ -41,8 +41,6 @@ const Register = () => {
         toast.error(data.message)
       } else if (response.status === 409) {
         toast.error(data.message)
-      } else if (response.status === 400) {
-        toast.error(data.message)
       } else if (response.status === 200) {
         toast.success(data.message)
         navigate('/verify-otp', { state: { email, password, username } })
@@ -61,18 +59,27 @@ const Register = () => {
     <>
       {loading ? (
         <>
-          <div
-            className="absolute inset-0 flex items-center justify-center bg-white
-          bg-opacity-75 z-10"
-          >
+          <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
             <ClipLoader />
           </div>
         </>
       ) : (
         <>
-          <div className="mx-auto max-w-fit">
-            <form onSubmit={Register}>
-              <div>
+          <div className="mx-auto max-w-4xl flex items-center justify-center lg:flex-row flex-col">
+            {/* GIF Section - Hidden on small screens */}
+            <div className="hidden lg:block lg:w-1/2 mr-20">
+              <iframe
+                src="https://giphy.com/embed/9JrkkDoJuU0FbdbUZU"
+                width="480"
+                height="455"
+                allowFullScreen
+                className="rounded-lg shadow shadow-lg"
+              ></iframe>
+            </div>
+
+            {/* Registration Form Section */}
+            <div className="max-w-xl lg:w-1/2">
+              <form onSubmit={Register}>
                 <Card>
                   <CardHeader>
                     <CardTitle>Registration</CardTitle>
@@ -127,8 +134,8 @@ const Register = () => {
                     </a>
                   </CardFooter>
                 </Card>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </>
       )}

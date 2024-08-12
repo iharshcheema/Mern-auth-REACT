@@ -22,12 +22,12 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
   const { user, setUser } = useContext(UserContext)
+
   useEffect(() => {
     if (user) {
       navigate('/dashboard')
-      console.log(user)
     }
-  }, [user])
+  }, [user, navigate])
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -56,7 +56,7 @@ const Login = () => {
       } else if (response.status === 200) {
         setUser(data.payload)
         toast.success('Signed in successfully')
-        return navigate('/dashboard')
+        navigate('/dashboard')
       } else {
         toast.error(data.message)
       }
@@ -70,14 +70,24 @@ const Login = () => {
   return (
     <>
       {loading ? (
-        <>
-          <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
-            <ClipLoader />
-          </div>
-        </>
+        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
+          <ClipLoader />
+        </div>
       ) : (
-        <>
-          <div className="mx-auto max-w-fit">
+        <div className="mx-auto max-w-4xl flex items-center justify-center lg:flex-row flex-col">
+          {/* GIF Section - Hidden on small screens */}
+          <div className="hidden lg:block lg:w-1/2 mr-20">
+            <iframe
+              src="https://giphy.com/embed/9JrkkDoJuU0FbdbUZU"
+              width="480"
+              height="360"
+              allowFullScreen
+              className="rounded-lg shadow shadow-lg"
+            ></iframe>
+          </div>
+
+          {/* Login Form Section */}
+          <div className="max-w-xl lg:w-1/2">
             <form onSubmit={handleLogin}>
               <Card>
                 <CardHeader>
@@ -96,9 +106,7 @@ const Login = () => {
                         id="identifier"
                         type="text"
                         value={identifier}
-                        onChange={(e) => {
-                          setIdentifier(e.currentTarget.value)
-                        }}
+                        onChange={(e) => setIdentifier(e.currentTarget.value)}
                         placeholder="Enter your username or Email address"
                         required
                       />
@@ -109,9 +117,7 @@ const Login = () => {
                         id="password"
                         type="password"
                         value={password}
-                        onChange={(e) => {
-                          setPassword(e.currentTarget.value)
-                        }}
+                        onChange={(e) => setPassword(e.currentTarget.value)}
                         placeholder="Enter your password"
                         required
                       />
@@ -134,7 +140,7 @@ const Login = () => {
               </Card>
             </form>
           </div>
-        </>
+        </div>
       )}
     </>
   )
