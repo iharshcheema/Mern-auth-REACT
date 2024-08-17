@@ -9,7 +9,7 @@ import { TbMinusVertical } from 'react-icons/tb'
 
 const Header = () => {
   return (
-    <div className="text-center font-bold py-10 mb-10 mx-auto max-w-fit flex flex-col gap-5 text-center">
+    <div className="text-center font-bold py-10 mb-10 mx-auto max-w-fit flex flex-col gap-5">
       <h1 className="text-gray-600 font-medium mb-5">
         MERN Authentication System
       </h1>

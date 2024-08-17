@@ -25,7 +25,7 @@ const App = () => {
                 </>
               }
             />
-            <Route path="/register" element={<Register />} />
+            <Route path="/register" element={<Register/>} />
             <Route path="/verify-otp" element={<VerifyOtp />} />
             <Route element={<Authrequired />}>
               <Route path="/dashboard" element={<Dashboard />} />

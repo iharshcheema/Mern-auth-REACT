@@ -103,7 +103,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="mx-auto max-w-fit flex flex-col mb-2">
+      <div className="mx-auto max-w-fit flex flex-col mb-2 ">
         <h1 className="text-2xl mb-5">Welcome to the Dashboard !</h1>
       </div>
       <div className="mx-auto max-w-fit flex flex-col mb-10">

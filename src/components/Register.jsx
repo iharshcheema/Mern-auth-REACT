@@ -65,15 +65,21 @@ const Register = () => {
         </>
       ) : (
         <>
-          <div className="mx-auto max-w-4xl flex items-center justify-center lg:flex-row flex-col">
+          <div
+            className="mx-auto max-w-4xl flex items-center justify-center lg:flex-row flex-col
+          md:max-w-min
+          lg:max-w-3xl
+          xl:max-w-4xl
+          "
+          >
             {/* GIF Section - Hidden on small screens */}
-            <div className="hidden lg:block lg:w-1/2 mr-20">
+            <div className="hidden xl:block mr-20">
               <iframe
                 src="https://giphy.com/embed/9JrkkDoJuU0FbdbUZU"
                 width="480"
                 height="455"
                 allowFullScreen
-                className="rounded-lg shadow shadow-lg"
+                className="rounded-lg shadow-lg"
               ></iframe>
             </div>
 

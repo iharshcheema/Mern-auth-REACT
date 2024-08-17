@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="mx-auto max-w-fit text-center">
+    <div className="mx-auto text-center m-0 p-0">
       <h1 className="mb-7 font-bold">Welcome to MERN AUTHENTICATION!</h1>
 
       <p className="mb-7">
