@@ -1,7 +1,7 @@
 const About = () => {
   return (
     <div
-      className="mx-auto text-center m-0 p-0  md:max-w-min
+      className="mx-auto text-center m-0 p-0 md:max-w-min
           lg:max-w-3xl
           xl:max-w-4xl "
     >
