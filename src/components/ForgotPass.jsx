@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { BASE_URL } from '@/apiconfig/apiconfig'
+
 import {
   Card,
   CardContent,
@@ -24,17 +26,14 @@ const ForgotPass = () => {
     try {
       setLoading(true)
 
-      const response = await fetch(
-        'https://mern-auth-backend-production-41f9.up.railway.app/forgot-pass',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email }),
-          credentials: 'include',
-        }
-      )
+      const response = await fetch(`${BASE_URL}/forgot-pass`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+        credentials: 'include',
+      })
 
       const data = await response.json()
       if (response.status === 400) {

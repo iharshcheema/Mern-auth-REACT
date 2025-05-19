@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { toast } from 'react-toastify'
 import UserContext from '../context/Usercontext'
 import { useNavigate } from 'react-router-dom'
+import { BASE_URL } from '@/apiconfig/apiconfig'
 
 import {
   Card,
@@ -34,17 +35,14 @@ const Login = () => {
     try {
       setLoading(true)
 
-      const response = await fetch(
-        'https://mern-auth-backend-production-41f9.up.railway.app/login',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ identifier, password }),
-          credentials: 'include',
-        }
-      )
+      const response = await fetch(`${BASE_URL}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ identifier, password }),
+        credentials: 'include',
+      })
 
       const data = await response.json()
       if (response.status === 400) {
@@ -82,15 +80,6 @@ const Login = () => {
           "
         >
           {/* GIF Section - Hidden on small screens */}
-          <div className="hidden xl:block mr-20">
-            <iframe
-              src="https://giphy.com/embed/9JrkkDoJuU0FbdbUZU"
-              width="480"
-              height="360"
-              allowFullScreen
-              className="rounded-lg  shadow-lg"
-            ></iframe>
-          </div>
 
           {/* Login Form Section */}
           <div className="max-w-xl lg:w-1/2">

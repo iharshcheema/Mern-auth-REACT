@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Button } from '@/components/ui/button'
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp'
+import { BASE_URL } from '@/apiconfig/apiconfig'
+
 import {
   InputOTP,
   InputOTPGroup,
@@ -36,14 +38,11 @@ const VerifyOtp = () => {
 
     try {
       setLoading(true)
-      const response = await fetch(
-        'https://mern-auth-backend-production-41f9.up.railway.app/register',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ otp, username, email, password }),
-        }
-      )
+      const response = await fetch(`${BASE_URL}/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ otp, username, email, password }),
+      })
 
       const data = await response.json()
       // otp middleware

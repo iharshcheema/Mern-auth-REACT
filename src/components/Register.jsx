@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+
 import {
   Card,
   CardContent,
@@ -13,6 +14,9 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import ClipLoader from 'react-spinners/ClipLoader'
+import { BASE_URL } from '@/apiconfig/apiconfig'
+
+
 
 const Register = () => {
   const [loading, setLoading] = useState(false)
@@ -26,16 +30,13 @@ const Register = () => {
 
     try {
       setLoading(true)
-      const response = await fetch(
-        'https://mern-auth-backend-production-41f9.up.railway.app/generate-otp',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ username, email }),
-        }
-      )
+      const response = await fetch(`${BASE_URL}/generate-otp`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, email }),
+      })
       const data = await response.json()
       if (response.status === 400) {
         toast.error(data.message)
@@ -74,13 +75,6 @@ const Register = () => {
           >
             {/* GIF Section - Hidden on small screens */}
             <div className="hidden xl:block mr-20">
-              <iframe
-                src="https://giphy.com/embed/9JrkkDoJuU0FbdbUZU"
-                width="480"
-                height="455"
-                allowFullScreen
-                className="rounded-lg shadow-lg"
-              ></iframe>
             </div>
 
             {/* Registration Form Section */}

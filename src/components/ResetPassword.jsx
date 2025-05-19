@@ -5,6 +5,8 @@ import { toast } from 'react-toastify'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
+import { BASE_URL } from '@/apiconfig/apiconfig'
+
 
 import {
   Card,
@@ -30,17 +32,14 @@ const ResetPassword = () => {
       if (password !== confirmPassword) {
         return toast.error('Password did not match')
       }
-      const response = await fetch(
-        `https://mern-auth-backend-production-41f9.up.railway.app/reset-pass/${token}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ password }),
-          credentials: 'include',
-        }
-      )
+      const response = await fetch(`${BASE_URL}/${token}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ password }),
+        credentials: 'include',
+      })
       const data = await response.json()
       if (response.status === 400) {
         toast.error(data.message)

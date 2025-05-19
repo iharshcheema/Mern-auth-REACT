@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { BASE_URL } from '@/apiconfig/apiconfig'
 import {
   Dialog,
   DialogClose,
@@ -30,17 +31,14 @@ const Dashboard = () => {
     try {
       setLoading(true)
 
-      const response = await fetch(
-        'https://mern-auth-backend-production-41f9.up.railway.app/change-pass',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ user, currentPassword, newPassword }),
-          credentials: 'include',
-        }
-      )
+      const response = await fetch(`${BASE_URL}/change-pass`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user, currentPassword, newPassword }),
+        credentials: 'include',
+      })
 
       const data = await response.json()
       if (response.status === 400) {
@@ -64,16 +62,13 @@ const Dashboard = () => {
   const handleLogout = async () => {
     try {
       setlogoutLoading(true)
-      const response = await fetch(
-        'https://mern-auth-backend-production-41f9.up.railway.app/logout',
-        {
-          credentials: 'include',
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
+      const response = await fetch('http://localhost:4000/logout', {
+        credentials: 'include',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
       const data = await response.json()
       if (response.status === 401) {
         toast.error(data.message)
